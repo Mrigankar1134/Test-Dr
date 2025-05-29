@@ -174,17 +174,19 @@ export default function ServicesPage() {
               />
             </button>
 
-            <CTAButton
-              as="button"
-              text="Contact Us"
-              Icon={FaQuestion}
-              bgColor="var(--color-button)"
-              hoverColor="var(--color-primary-hover)"
-              circleColor="var(--color-primary-circle)"
-              textColor="#fff"
-              onMouseEnter={() => setHovered('contact')}
-              onMouseLeave={() => setHovered(null)}
-            />
+            <div className="w-full flex justify-center sm:w-auto sm:justify-start">
+    <CTAButton
+      as="button"
+      text="Contact Us"
+      Icon={FaQuestion}
+      bgColor="var(--color-button)"
+      hoverColor="var(--color-primary-hover)"
+      circleColor="var(--color-primary-circle)"
+      textColor="#fff"
+      onMouseEnter={() => setHovered('contact')}
+      onMouseLeave={() => setHovered(null)}
+    />
+  </div>
           </div>
         </section>
       </div>
