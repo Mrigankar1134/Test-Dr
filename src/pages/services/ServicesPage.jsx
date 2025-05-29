@@ -78,115 +78,117 @@ export default function ServicesPage() {
 
   return (
     <>
-    <Navbar />
-    <div className="bg-white py-12 mx-[120px] px-20 mt-30 mb-20 rounded-2xl">
-      {/* Services */}
-      <section className="bg-white mx-auto mb-16 space-y-6 rounded-2xl">
-        <h1 className="text-3xl font-extrabold text-center text-gray-900">
-          Corporate Health Screening
-        </h1>
-        {services.map((s, i) => (
-          <div
-            key={i}
-            className="flex items-center gap-8 border-b border-gray-200 pb-4"
-          >
-            <s.icon className="w-6 h-6 text-gray-900 flex-shrink-0" />
-            <p className="text-gray-900">{s.text}</p>
+      <Navbar />
+      <div className="bg-white mx-6 mt-28 md:mx-[70px] lg:mx-[120px] px-6 pt-10 md:px-[70px] lg:px-[120px] rounded-2xl">
+        {/* Services */}
+        <section className="bg-white mx-auto mb-16 space-y-6 rounded-2xl">
+          <h1 className="text-3xl font-extrabold text-center text-gray-900">
+            Corporate Health Screening
+          </h1>
+          {services.map((s, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-8 border-b border-gray-200 pb-4"
+            >
+              <s.icon className="w-6 h-6 text-gray-900 flex-shrink-0" />
+              <p className="text-gray-900">{s.text}</p>
+            </div>
+          ))}
+        </section>
+
+        {/* Plans */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          {/* Plan A */}
+          <div className=" rounded-2xl">
+            <h2 className="text-2xl font-semibold mb-4">Plan A</h2>
+            <ol className="list-decimal list-inside space-y-4 text-gray-900">
+              {planA.map((plan, i) => (
+                <li key={i} className="space-y-2">
+                  <div className="inline-block font-medium">{plan.title}</div>
+                  {plan.items && (
+                    <ul className="list-disc list-inside pl-4 space-y-1 text-gray-700 font-normal">
+                      {plan.items.map((it, j) => (
+                        <li key={j}>{it}</li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ol>
           </div>
-        ))}
-      </section>
 
-      {/* Plans */}
-      <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-        {/* Plan A */}
-        <div className=" rounded-2xl">
-          <h2 className="text-2xl font-semibold mb-4">Plan A</h2>
-          <ol className="list-decimal list-inside space-y-4 text-gray-900">
-            {planA.map((plan, i) => (
-              <li key={i} className="space-y-2">
-                <div className="inline-block font-medium">{plan.title}</div>
-                {plan.items && (
-                  <ul className="list-disc list-inside pl-4 space-y-1 text-gray-700 font-normal">
-                    {plan.items.map((it, j) => (
-                      <li key={j}>{it}</li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ol>
-        </div>
+          {/* Add-Ons */}
+          <div className=" rounded-2xl">
+            <h2 className="text-2xl font-semibold mb-4">Additional Add-Ons</h2>
+            <ol className="list-decimal list-inside space-y-4 text-gray-900">
+              {addOns.map((addon, i) => (
+                <li key={i} className="space-y-2">
+                  <div
+                    className={`${addon.highlight ? 'bg-yellow-200 px-1 rounded' : ''
+                      } inline-block font-medium`}
+                  >
+                    {addon.title}
+                  </div>
+                  {addon.items && (
+                    <ul className="list-disc list-inside pl-4 space-y-1 text-gray-700 font-normal">
+                      {addon.items.map((it, j) => (
+                        <li key={j}>{it}</li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
 
-        {/* Add-Ons */}
-        <div className=" rounded-2xl">
-          <h2 className="text-2xl font-semibold mb-4">Additional Add-Ons</h2>
-          <ol className="list-decimal list-inside space-y-4 text-gray-900">
-            {addOns.map((addon, i) => (
-              <li key={i} className="space-y-2">
-                <div
-                  className={`${addon.highlight ? 'bg-yellow-200 px-1 rounded' : ''
-                    } inline-block font-medium`}
-                >
-                  {addon.title}
-                </div>
-                {addon.items && (
-                  <ul className="list-disc list-inside pl-4 space-y-1 text-gray-700 font-normal">
-                    {addon.items.map((it, j) => (
-                      <li key={j}>{it}</li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+        {/* Mental Health */}
+        <section className="rounded-2xl mb-16 space-y-6">
+          <h3 className="text-xl font-semibold text-gray-900">Mental Health – Executive Edge</h3>
+          <div className="space-y-3 text-gray-700">
+            <p>
+              Just like physical health, your mind needs regular check-ups—especially when stress and
+              decision fatigue are part of daily life.
+            </p>
+            <p>
+              This short quiz helps you reflect on your current state of mind. Not just health, but for
+              a quality life.
+            </p>
+          </div>
+          <div className="flex items-center space-x-4">
+            <button
+              onMouseEnter={() => setHovered('begin')}
+              onMouseLeave={() => setHovered(null)}
+              className="flex items-center text-lg font-semibold gap-2"
+            >
+              <span className={hovered === 'begin' ? 'underline decoration-2' : ''}>
+                Let’s Begin
+              </span>
 
-      {/* Mental Health */}
-      <section className="rounded-2xl mb-16 space-y-6">
-        <h3 className="text-xl font-semibold text-gray-900">Mental Health – Executive Edge</h3>
-        <div className="space-y-3 text-gray-700">
-          <p>
-            Just like physical health, your mind needs regular check-ups—especially when stress and
-            decision fatigue are part of daily life.
-          </p>
-          <p>
-            This short quiz helps you reflect on your current state of mind. Not just health, but for
-            a quality life.
-          </p>
-        </div>
-        <div className="flex items-center space-x-4">
-  <button
-    onMouseEnter={() => setHovered('begin')}
-    onMouseLeave={() => setHovered(null)}
-    className="flex items-center text-lg font-semibold gap-2"
-  >
-    <span className={hovered === 'begin' ? 'underline decoration-2' : ''}>
-      Let’s Begin
-    </span>
-    <img
-      src={ArrowGif}
-      alt=""
-      className="w-20 h-20 transition-transform duration-300"
-      style={{ transform: `rotate(${hovered === 'begin' ? '200deg' : '180deg'})` }}
-    />
-  </button>
+              {/* Hide on mobile, show on medium+ screens */}
+              <img
+                src={ArrowGif}
+                alt=""
+                className="w-20 h-20 transition-transform duration-300 hidden md:block"
+                style={{ transform: `rotate(${hovered === 'begin' ? '200deg' : '180deg'})` }}
+              />
+            </button>
 
-  <CTAButton
-    as="button"
-    text="Contact Us"
-    Icon={FaQuestion}
-    bgColor="var(--color-button)"
-    hoverColor="var(--color-primary-hover)"
-    circleColor="var(--color-primary-circle)"
-    textColor="#fff"
-    onMouseEnter={() => setHovered('contact')}
-    onMouseLeave={() => setHovered(null)}
-  />
-</div>
-      </section>
-    </div>
-    <Footer />
+            <CTAButton
+              as="button"
+              text="Contact Us"
+              Icon={FaQuestion}
+              bgColor="var(--color-button)"
+              hoverColor="var(--color-primary-hover)"
+              circleColor="var(--color-primary-circle)"
+              textColor="#fff"
+              onMouseEnter={() => setHovered('contact')}
+              onMouseLeave={() => setHovered(null)}
+            />
+          </div>
+        </section>
+      </div>
+      <Footer />
     </>
   )
 }
