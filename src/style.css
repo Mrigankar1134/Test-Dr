@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+
+:root {
+  --color-bg: #F5F4F2;
+  --color-heading: #0E0F0F;
+  --color-button: #0084C6;
+  --color-primary-text: #FFFFFF;
+  --color-primary-circle: #5DCAFF;
+  --color-primary-hover: #009AE6;
+  --color-secondary: #5AC56C;
+  --color-secondary-circle: #9FE8AC;
+  --color-secondary-hover: #369045;
+  --color-footer-bg: #161618;
+  --color-footer-box: #1C1C1F
+}
+
+html {
+  font-size: 100%;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  min-height: 100vh;
+}
+
+@layer components {
+  .cta-button__text {
+    margin-right: 0.75rem;
+  }
+  .cta-button {
+    @apply inline-flex items-center justify-center relative;
+    background-color: var(--btn-bg);
+    color: var(--chevron-color);
+    border-radius: 9999px;
+    --btn-height: 3.5rem;
+    height: var(--btn-height);
+    padding-left: 1.5rem;
+    padding-right: var(--btn-height);
+    font-weight: 300;
+    font-size: 1rem;
+    transition: transform 150ms ease-in-out, box-shadow 200ms ease-in-out;
+  }
+  .cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: var(--btn-hover);
+  }
+  .cta-button__circle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0.45rem;
+    margin: auto 0;
+    width: 2.9rem;
+    height: 2.9rem;
+    background-color: var(--circle-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
