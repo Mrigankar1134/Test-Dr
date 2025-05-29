@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import Logo from '../../assets/logo.png';
+import Logo from '../../assets/Logo.png';
 import { PhoneIncoming, Menu, X } from 'lucide-react';
 
 export default function Navbar() {
