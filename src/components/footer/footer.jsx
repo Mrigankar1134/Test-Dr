@@ -31,8 +31,7 @@ export default function Footer() {
                 {/* Aspiration card */}
                 <div className="bg-[var(--color-footer-box)] rounded-lg p-6 mb-8">
                     <p className="text-base text-gray-100 text-center">
-                        DrMudhiwalla HealthCare aspires to become India’s No. 1 preventive
-                        health-screening focused company.
+                    "Most health check ups focus on blood tests only. Our health screening is a combination of lifestyle assessment with key biomarkers. With comprehensive picture of risk factors, you can prevent future health problems by lifestyle modifications."
                     </p>
                 </div>
 
@@ -65,7 +64,7 @@ export default function Footer() {
                             <a href="#" className="p-2 bg-[var(--color-footer-box)] rounded">
                                 <Facebook className="w-6 h-6 text-white" />
                             </a>
-                            <a href="#" className="p-2 bg-[var(--color-footer-box)] rounded">
+                            <a href="https://www.linkedin.com/company/drmudhiwalla/" className="p-2 bg-[var(--color-footer-box)] rounded">
                                 <Linkedin className="w-6 h-6 text-white" />
                             </a>
                             <a href="#" className="p-2 bg-[var(--color-footer-box)] rounded">
@@ -101,7 +100,7 @@ export default function Footer() {
                         <a href="#" className="text-gray-400 hover:text-white">
                             Terms of Service
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-white">
+                        <a href="/employee-login" className="text-gray-400 hover:text-white">
                             Employee Login
                         </a>
                         <a href="#" className="text-gray-400 hover:text-white">

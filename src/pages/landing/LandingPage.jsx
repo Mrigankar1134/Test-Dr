@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Hero1 from '../../assets/Hero1.jpg';
 import Hero2 from '../../assets/Hero2.jpg';
 import Hero3 from '../../assets/Hero3.jpg';
@@ -9,6 +9,8 @@ import {
   ChevronsRight, Clock, Calendar, ShieldCheck, MessageCircle, Info, FileText, User,
   TestTube, AlertCircle, HeartPulse, CheckCircle, Frown, Moon, Activity
 } from 'lucide-react';
+
+
 
 const testimonials = [
   {
@@ -26,25 +28,35 @@ const testimonials = [
 ];
 
 export default function LandingPage() {
+  const [atTop, setAtTop] = useState(true);
+
+  useEffect(() => {
+    const onScroll = () => setAtTop(window.scrollY < 10);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
   return (
     <>
       <Navbar />
-      <div className='px-[120px]'>
+      <div className="px-6 md:px-[70px] lg:px-[120px]">
         <section className="relative overflow-hidden">
-          {/* Main container with responsive grid */}
-          <div className="max-w-screen-xl mx-auto pt-20 pb-16 lg:pt-28 lg:pb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-screen-xl mx-auto pt-24 pb-32 lg:pt-28 lg:pb-28 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Column */}
             <div className="max-w-lg mx-auto lg:mx-0 space-y-6">
-              <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-8">
+              <h1 className="font-extrabold leading-tight mb-8
+                     text-[36px] md:text-[42px]">
                 Just 20 minutes.<br />
                 A Health Screening to Protect yourself from Heart Attack.
               </h1>
-              <p className="text-base mb-12 text-gray-700">
-                Identify <span className="font-semibold text-gray-900">silent risk factors</span> – like high blood pressure, cholesterol, stress, and lifestyle habits – before they lead to a heart attack.
+              <p className="mb-12 text-gray-700
+                    text-[18px] md:text-[20px]">
+                Identify <span className="font-semibold text-gray-900">
+                  silent risk factors
+                </span> – like high blood pressure, cholesterol, stress, and lifestyle habits – before they lead to a heart attack.
               </p>
 
               <div className="flex flex-wrap gap-4">
-                {/* Primary “Learn More” */}
+                {/* Learn More */}
                 <CTAButton
                   as="a"
                   href="/contact"
@@ -55,8 +67,7 @@ export default function LandingPage() {
                   circleColor="var(--color-primary-circle)"
                   textColor="#fff"
                 />
-
-                {/* WhatsApp “Dr. Sanjeet” */}
+                {/* WhatsApp */}
                 <CTAButton
                   as="a"
                   href="https://wa.me/919707010270"
@@ -71,21 +82,20 @@ export default function LandingPage() {
                 />
               </div>
 
-              {/* Feature List */}
-              <ul className="mt-8 flex justify-between text-xs text-gray-600">
-                <li className="flex items-center">
-                  <Clock className="w-5 h-5 mr-2 text-[var(--color-button)]" />
+              <p className="mt-8 text-gray-600 text-[13px] flex flex-wrap items-center gap-x-6 gap-y-2">
+                <span className="flex items-center">
+                  <Clock className="w-4 h-4 text-[var(--color-button)] mr-1.5 flex-shrink-0" />
                   20 minutes process
-                </li>
-                <li className="flex items-center">
-                  <Calendar className="w-5 h-5 mr-2 text-[var(--color-button)]" />
+                </span>
+                <span className="flex items-center">
+                  <Calendar className="w-4 h-4 text-[var(--color-button)] mr-1.5 flex-shrink-0" />
                   At your convenience
-                </li>
-                <li className="flex items-center">
-                  <ShieldCheck className="w-5 h-5 mr-2 text-[var(--color-button)]" />
+                </span>
+                <span className="flex items-center">
+                  <ShieldCheck className="w-4 h-4 text-[var(--color-button)] mr-1.5 flex-shrink-0" />
                   Non-invasive procedure
-                </li>
-              </ul>
+                </span>
+              </p>
             </div>
 
             {/* Right Column: Image */}
@@ -98,16 +108,27 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Scroll Down Indicator */}
-          <div className="absolute bottom-4 w-full text-center text-gray-500 flex flex-col items-center animate-bounce">
+          {/* Scroll Down */}
+          <div
+            className={`
+        absolute bottom-80 md:bottom-[28px] w-full text-center text-gray-500 flex flex-col items-center animate-bounce
+        pointer-events-none
+        ${!atTop ? 'hidden' : ''}
+      `}
+          >
             <span>Scroll Down</span>
-            <svg className="w-6 h-6 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-6 h-6 mt-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </div>
         </section>
         <section className="overflow-hidden">
-          <div className="max-w-screen-xl mx-auto py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-screen-xl mx-auto py-16 pt-0 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="mx-auto lg:mx-0">
               <img
                 src={Hero2}
@@ -169,14 +190,14 @@ export default function LandingPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">
               {/* Stress */}
-              <div className="p-8 flex flex-col items-start space-y-6">
+              <div className="p-8 flex flex-col items-center md:items-start space-y-6 text-center md:text-left">
                 <h3 className="text-xl font-semibold text-gray-900">Is Stress Killing You?</h3>
                 <p className="text-base text-gray-700">
                   Feeling overwhelmed? <br />How stressed are you?
                 </p>
                 <CTAButton
                   as="a"
-                  href="#stress-check"
+                  href="/stress-check"
                   text="Check Your Stress"
                   Icon={Frown}
                   bgColor="var(--color-button)"
@@ -187,14 +208,14 @@ export default function LandingPage() {
               </div>
 
               {/* Sleep */}
-              <div className="p-8 flex flex-col items-start space-y-6">
+              <div className="p-8 flex flex-col items-center md:items-start space-y-6 text-center md:text-left">
                 <h3 className="text-xl font-semibold text-gray-900">Are You Sleeping Enough?</h3>
                 <p className="text-base text-gray-700">
                   Sleep repairs and rejuvenates the body and mind.
                 </p>
                 <CTAButton
                   as="a"
-                  href="#sleep-check"
+                  href="/sleep-check"
                   text="Sleep Quality Check"
                   Icon={Moon}
                   bgColor="var(--color-button)"
@@ -205,14 +226,14 @@ export default function LandingPage() {
               </div>
 
               {/* Activity */}
-              <div className="p-8 flex flex-col items-start space-y-6">
+              <div className="p-8 flex flex-col items-center md:items-start space-y-6 text-center md:text-left">
                 <h3 className="text-xl font-semibold text-gray-900">Staying Active Enough?</h3>
                 <p className="text-base text-gray-700">
                   Sedentary lifestyle and Obesity are the root cause.
                 </p>
                 <CTAButton
                   as="a"
-                  href="#activity-check"
+                  href="/activity-check"
                   text="Activity Level Check"
                   Icon={Activity}
                   bgColor="var(--color-button)"
