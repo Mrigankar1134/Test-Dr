@@ -79,7 +79,7 @@ export default function ServicesPage() {
   return (
     <>
       <Navbar />
-      <div className="bg-white mx-6 mt-28 md:mx-[70px] lg:mx-[120px] px-6 pt-10 md:px-[70px] lg:px-[120px] rounded-2xl">
+      <div className="bg-white mx-6 mt-28 md:mx-[70px] lg:mx-[120px] px-6 pt-10 pb-10 md:px-[70px] lg:px-[120px] rounded-2xl">
         {/* Services */}
         <section className="bg-white mx-auto mb-16 space-y-6 rounded-2xl">
           <h1 className="text-3xl font-extrabold text-center text-gray-900">
@@ -155,21 +155,21 @@ export default function ServicesPage() {
               a quality life.
             </p>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center sm:space-x-4 space-y-4 sm:space-y-0">
             <button
               onMouseEnter={() => setHovered('begin')}
               onMouseLeave={() => setHovered(null)}
-              className="flex items-center text-lg font-semibold gap-2"
+              className="flex flex-col sm:flex-row items-start sm:items-center text-lg font-semibold gap-2"
             >
               <span className={hovered === 'begin' ? 'underline decoration-2' : ''}>
-                Let’s Begin
+                Let’s Begin!
               </span>
 
-              {/* Hide on mobile, show on medium+ screens */}
+              {/* Hide the image on small screens */}
               <img
                 src={ArrowGif}
                 alt=""
-                className="w-20 h-20 transition-transform duration-300 hidden md:block"
+                className="w-20 h-20 transition-transform duration-300 hidden sm:block"
                 style={{ transform: `rotate(${hovered === 'begin' ? '200deg' : '180deg'})` }}
               />
             </button>
