@@ -62,7 +62,7 @@ export default function Navbar() {
           {/* Desktop Contact Button */}
           <div className="hidden md:block">
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex items-center rounded-full bg-[var(--color-button)] hover:bg-[var(--color-primary-hover)] text-white font-medium px-6 py-3 transition-colors duration-300"
             >
               Contact Us

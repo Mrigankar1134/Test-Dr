@@ -47,7 +47,7 @@ export default function LandingPage() {
                 {/* Primary “Learn More” */}
                 <CTAButton
                   as="a"
-                  href="#learn-more"
+                  href="/contact"
                   text="Learn More"
                   Icon={ChevronsRight}
                   bgColor="var(--color-button)"
@@ -59,7 +59,7 @@ export default function LandingPage() {
                 {/* WhatsApp “Dr. Sanjeet” */}
                 <CTAButton
                   as="a"
-                  href="https://wa.me/XXXXXXXXXXX"
+                  href="https://wa.me/919707010270"
                   target="_blank"
                   rel="noopener noreferrer"
                   text="WhatsApp Dr. Sanjeet"
@@ -249,7 +249,7 @@ export default function LandingPage() {
               </p>
               <CTAButton
                 as="a"
-                href="#enquire-services"
+                href="/contact"
                 text="Enquire About Our Services"
                 Icon={Info}
                 bgColor="var(--color-button)"
@@ -278,7 +278,7 @@ export default function LandingPage() {
             <div className="flex justify-center">
               <CTAButton
                 as="a"
-                href="#consult"
+                href="/contact"
                 text="Consult for your experience"
                 Icon={FileText}
                 bgColor="var(--color-button)"
